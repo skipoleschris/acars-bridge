@@ -42,7 +42,7 @@ async function pingService(purpose, hostname, logonKey, fromCallSign) {
     return fetch(url);
 }
 
-async function confirmConnection(purpose, response, warningCallback) {
+async function confirmConnection(purpose, response) {
     let result = false;
     if (!response.ok) {
         console.error(`Unable to ping the ${purpose} ACARS server: ` + response.statusText)
