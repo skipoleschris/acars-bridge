@@ -87,9 +87,21 @@
         <p>You can find a list of Flight Information Regions hare: <a href="https://en.wikipedia.org/wiki/List_of_area_control_centers">List of area control centers</a>.
         The ICAO code for a region can be used for your ATSU Id, alternatively just use the default made up region of PKGM.</p>
 
-        <p>You can check out messages sent via the Hoppie.nl ACARS network: <a href="https://www.hoppie.nl/acars/system/log.html">here</a>.</p>
+        <p>You can check out messages sent via the Hoppie.nl ACARS network: <a id="hoppieLink" href="https://www.hoppie.nl/acars/system/log.html" target="_blank">here</a>.
+            <span id="hoppieNetworkSelect">(Hoppie network association: <select id="hoppieNetwork" name="network">
+                <option value="CAFSIM">CAFSIM</option>
+                <option value="CFR">CFR</option>
+                <option value="FSAD">FSAD</option>
+                <option value="IVAO">IVAO</option>
+                <option value="PDAsim">PDAsim</option>
+                <option value="星空飞行">星空飞行</option>
+                <option value="SXC">SXC</option>
+                <option value="VATSIM">VATSIM</option>
+                <option value="None" selected="">None</option>
+            </select>)</span>
+        </p>
 
-        <p>You can check out messages sent via the SayIntentions.ai ACARS network: <a href="https://acars.sayintentions.ai/dump">here</a>.</p>
+        <p>You can check out messages sent via the SayIntentions.ai ACARS network: <a id="sayIntentionsLink" href="https://acars.sayintentions.ai/dump" target="_blank">here</a>.</p>
     </div>
 
     <script src="umbrella.min.js"></script>
