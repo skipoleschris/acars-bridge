@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Skipoles ACARS</title>
+    <link rel="stylesheet" href="styles.css"/>
+<body>
+    <h1>Skipoles ACARS</h1>
+    <p>This is the homepage for the Skipoles ACARS Bridge. If you are happy with what this is and why
+    you need to use it then go ahead and <a href="bridge.html">Run The Bridge</a>.</p>
+
+    <h2>What is ACARS</h2>
+    <p>ACARS (Aircraft Communications Addressing and Reporting System) is a digital datalink system
+    for transmission of short messages between aircraft and ground stations. The ground stations
+    are typically ATC (Air Traffic Control) or Airline Companies.</p>
+
+    <p>Each ACARS message consists of a sender id (e.g. airplane call sign), a recipient id
+    (e.g. airline company ICAO id), a message type and a packet payload.</p>
+
+    <h2>What is CPDLC</h2>
+    <p>CPDLC (Controller-pilot data link communications) is a means of communication between a
+    pilot and ATC. It provides a way to exchange non-time-sensitive ATC related requests and
+    responses. The primary aim is to free up congested voice comms channels by routing non-urgent
+    via an asynchronous message based system.</p>
+
+    <p>A pilot logs into CPDLC using their airplane call sign. They connect to an ATSU
+    (Air Traffic Service Unit) to which messages are sent and received. Typical messages include:</p>
+    <ul>
+        <li>Pre-departure clearance exchange</li>
+        <li>Change of communication channels or radio frequencies</li>
+        <li>Non-urgent changes to altitude, speed or route</li>
+    </ul>
+
+    <h2>ACARS and CPDLC in the FlighSim World</h2>
+    <p>The use of ACARS and CPDLC is becoming more common in the FlightSim world, as a way of
+    creating a more immersive experience. There are a number of aircraft that have ACARS and CPDLC
+    support built directly into their FMC/CDU systems. Alternatively, there are a number of standalone
+    applications that can be used to send and receive ACARS and CPDLC messages.</p>
+
+    <p>The VATSIM network has a CPDLC service that can be used to send and receive CPDLC messages as
+    part of the VATSIM ATC experience. Additionally, SayIntentions.ai, the AI based ATC service, also
+    supports CPDLC messages and ACARS. Both of these solutions allow pilots and ATC to communicate
+    via messaging in addition to voice channels.</p>
+
+    <h2>What do we need an ACARS Bridge</h2>
+    <p>The original ACARS solution for FlightSims is the Hoppie.nl ACARS network. This implements a
+    web-based API for sending and receiving ACARS messages, including those with the CPDLC type.
+    As the original implementation, this is the ACARS network that is defaulted in most of the ACARS
+    compatible airplanes. It is also the network used by VATSIM.</p>
+
+    <p>SayIntentions.ai have also implemented their own ACARS network, which is tightly integrated with
+    their AI based ATC service. It implements an identical web-based API to the Hoppie.nl network, so in
+    theory should just be a drop-in replacement for anyone using SayIntentions.ai as their ATC solution.
+    The idea is that it should be possible to reconfigure a FlightSim airplane to talk to
+    <i>acars.sayintentions.ai</i> instead of <i>www.hoppie.nl</i>.</p>
+
+    <p>Unfortunately, many of the existing FlightSim airplanes are hardcoded to use only the Hoppie.nl network.
+    Most of these airplanes seem to have the Hoppie ACARS URL hardcoded into their source code rather than
+    in configuration, so that makes it impossible to change which ACARS network they are using. Hopefully
+    in the future these airplanes will make this more configurable, but for the moment this is where we are.</p>
+
+    <p>The ACARS Bridge is a solution to this problem. It is a standalone application that listens on both the
+    Hoppie.nl and SayIntentions.ai ACARS networks and routes messages between them. Once it knows the
+    Airplane call sign for the current flight it can poll the Hoppie.nl network for messages from that call sign sent
+    to the SayIntentions.ai ATSU and route these to the SayIntentions.ai ACARS network. In reverse it can poll
+    the SayIntentions.ai network for messages from the ATSU for the call sign and route them to the Hoppie.nl
+    network.</p>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ACARS Bridge</title>
+    <link rel="stylesheet" href="styles.css"/>
+<body>
+
+    <div class="row">
+        <div id="config" class="panel col">
+            <p class="title">Configuration</p>
+
+            <p>
+                <label for="simBriefId">SimBrief Pilot Id:</label>
+                <input type="text" id="simBriefId" name="simBriefId" value="" class="right">
+            </p>
+
+            <p>
+                <label for="hoppieLogonCode">Hoppie's ACARS Logon Code (Airplane):</label>
+                <input type="password" id="hoppieLogonCode" name="hoppieLogonCode" value="" class="right">
+            </p>
+
+            <p>
+                <label for="sayIntentionsAPIKey">SayIntentions.ai API Key (ATSU):</label>
+                <input type="password" id="sayIntentionsAPIKey" name="sayIntentionsAPIKey" value="" class="right">
+            </p>
+
+            <p>
+                <label for="atsuId">ATSU Id:</label>
+                <input type="text" id="atsuId" name="atsuId" value="PKGM" class="right">
+            </p>
+
+            <p>
+                <label for="showPasswords">Show Passwords:</label>
+                <input type="checkbox" id="showPasswords" name="showPasswords" value="false">
+            </p>
+
+            <p class="right">
+                <button id="save">Save Settings</button>
+                <button id="reset">Reset Settings</button>
+            </p>
+        </div>
+
+        <div id="bridge" class="panel col">
+            <p class="title">Bridge Control</p>
+            <div class="perc50">
+                <p class="info"><span class="padded left">Status:</span><span id="status" class="paddedAll stopped right monospaced"></span></p>
+                <p class="info"><span class="padded left">Current flight call sign:</span><span id="callSign" class="paddedAll right monospaced"></span></p>
+            </div>
+
+            <div>
+                <p>Error:</p>
+                <p id="error" class="indent noMessage">Errors will be displayed here.</p>
+            </div>
+
+            <div>
+                <p>Warning:</p>
+                <p id="warning" class="indent noMessage">Warnings will be displayed here.</p>
+            </div>
+
+            <p>
+                <button id="start">Start Bridge</button>
+                <button id="stop">Stop Bridge</button>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="toAirplaneContainer" class="panel high col">
+            <p class="title">Airplane Received Messages:</p>
+            <div class="scroller">
+                <ul id="toAirplane" class="messages"></ul>
+            </div>
+        </div>
+
+        <div id="toAtsuContainer" class="panel high col">
+            <p class="title">ATSU Received Messages:</p>
+            <div class="scroller">
+                <ul id="toATSU" class="messages"></ul>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <p>Please only have the bridge running while you have an active flight to minimise the load on
+        the ACARS networks.</p>
+
+        <p>You can find a list of Flight Information Regions hare: <a href="https://en.wikipedia.org/wiki/List_of_area_control_centers">List of area control centers</a>.
+        The ICAO code for a region can be used for your ATSU Id, alternatively just use the default made up region of PKGM.</p>
+
+        <p>You can check out messages sent via the Hoppie.nl ACARS network: <a href="https://www.hoppie.nl/acars/system/log.html">here</a>.</p>
+
+        <p>You can check out messages sent via the SayIntentions.ai ACARS network: <a href="https://acars.sayintentions.ai/dump">here</a>.</p>
+    </div>
+
+    <script src="umbrella.min.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
