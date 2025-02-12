@@ -108,5 +108,5 @@ async function sendMessages(queue, acarsClient, recipient, nextPollDate, targetI
 }
 
 function displayMessage(message, targetId) {
-    u(`#${targetId}`).append(`<li><span>${new Date().toLocaleString('en-GB')}</span><span>${message.from}</span><span>${message.messageType}</span><span class="messagePacket">${message.packet}</span></li>`);
+    u(`#${targetId}`).append(`<li><span class="timestamp">${new Date().toLocaleString('en-GB')}</span><span>${message.from}</span><span>${message.messageType}</span><span class="messagePacket">${message.packet}</span></li>`);
 }

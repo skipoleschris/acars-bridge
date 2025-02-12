@@ -89,7 +89,7 @@ p {
     margin: 30px;
     overflow-y:auto;
     flex-direction: column-reverse;
-    border: 2px solid gray;
+    border: 15px solid lightgray;
     background-color: black;
 }
 
@@ -117,6 +117,10 @@ p {
     content: ' ';
     clear: right;
     display: block;
+}
+
+.timestamp {
+    color: white;
 }
 
 #config {

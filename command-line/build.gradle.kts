@@ -1,12 +1,17 @@
 plugins {
     kotlin("jvm") version "2.1.0"
+    application
 }
 
 group = "org.example"
-version = "1.0-SNAPSHOT"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
+}
+
+application {
+    mainClass = "uk.co.skipoles.acars.bridge.MainKt"
 }
 
 dependencies {
