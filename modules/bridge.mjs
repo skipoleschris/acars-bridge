@@ -2,6 +2,7 @@ import {populateCallSign} from "./simbrief.mjs";
 import {ACARSClient} from "./acars.mjs";
 import {disableConfigChanges, enableConfigChanges} from "./config.mjs";
 import {startRouter, stopRouter} from "./router.mjs";
+import {setLinksCallSign} from "./links.mjs";
 
 let bridge = null;
 
@@ -64,6 +65,7 @@ class Bridge {
         this.lastWarning = null;
 
         this.#displayBridgeState();
+        setLinksCallSign(null);
     }
 
     #displayBridgeState() {
@@ -115,6 +117,7 @@ class Bridge {
         populateCallSign(this.configuration.simBriefId)
             .then((value) => {
                 this.callSign = value;
+                setLinksCallSign(value);
             })
             .then(() => this.airplaneClient.ping(this.callSign))
             .then(() => this.atsuClient.ping(this.callSign))
