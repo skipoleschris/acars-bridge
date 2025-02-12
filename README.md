@@ -29,8 +29,8 @@ Implementations
 
 I've created two different implementations of the ACARS Bridge using different technologies and approaches:
 
-- The command-line version is a Java/Kotlin command-line application that you have to run locally. The run it you must have a recent Java runtime available.
-- The webapp version is a standalone webpage that runs the bridge in a browser window, and therefore needs no downloads or additional software.
+- The [command-line](command-line/README.md) version is a Java/Kotlin command-line application that you have to run locally. The run it you must have a recent Java runtime available.
+- The [webapp](webapp/README.md) version is a standalone webpage that runs the bridge in a browser window, and therefore needs no downloads or additional software.
 
 Airplane Configuration
 ----------------------
